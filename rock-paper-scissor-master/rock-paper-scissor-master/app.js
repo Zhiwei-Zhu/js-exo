@@ -8,33 +8,32 @@ function game () {
   function startGame(){
     //selection du bouton play
     const playBtn = document.querySelector(".intro button");
-    //selection du bouton page d'intro
     const introScreen = document.querySelector(".intro");
-    //selection du bouton page match
     const match = document.querySelector(".match");
-    //dans le cas d'un click sur le bouton play on rajoute la classe fadeout à la page d'intro et fadein à la page de match
-    //qui va lancer l'animation pour faire apparraitre la page de match et disparaitre la page d'intro
+
     playBtn.addEventListener("click", () => {
       introScreen.classList.add("fadeOut");
       match.classList.add("fadeIn");
     });
   };
-  //La Partie match
-  function playMatch(){
-    //selection des boutons de choix (pierre,feuille et ciseaux)
+  //Play Match
+  function playMatch() {
     const options = document.querySelectorAll(".options button");
-    //selection de l'image du choix du joueur
     const playerHand = document.querySelector(".player-hand");
-    //selection de l'image du choix du ordi
     const computerHand = document.querySelector(".computer-hand");
+    const hands = document.querySelectorAll(".hands img");
 
-    //choix ordinateur list
+    hands.forEach(hand => {
+      hand.addEventListener("animationend", function() {
+        this.style.animation = "";
+      });
+    });
+    //Computer Options
     const computerOptions = ["rock", "paper", "scissors"];
 
-    //on met un listener dans le cas d'un click pour chaque bouton de choix
     options.forEach(option => {
       option.addEventListener("click", function() {
-        //math random qui permet le choix de l'ordi
+        //Computer Choice
         const computerNumber = Math.floor(Math.random() * 3);
         const computerChoice = computerOptions[computerNumber];
 
