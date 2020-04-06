@@ -39,26 +39,26 @@ function game () {
         const computerChoice = computerOptions[computerNumber];
 
           //utilisation de la fonction comparer
-          compareHands(this.textContent, computerChoice);
+          compareHands(this.className, computerChoice);
           //change l'img en fonction du choix du joueur ou de l'ordi
-          playerHand.src = `./assets/${this.textContent}.png`;
+          playerHand.src = `./assets/${this.className}.png`;
           computerHand.src = `./assets/${computerChoice}.png`;
       });
     });
   };
-  
+
   function updateScore(){
     const playerScore = document.querySelector(".player-score p");
     const computerScore = document.querySelector(".computer-score p");
     playerScore.textContent = pScore;
     computerScore.textContent = cScore;
   };
-
-  const compareHands = (playerChoice, computerChoice) => {
+  //fonction permettant de comparer les choix du joueur et de choix
+  function compareHands(playerChoice, computerChoice){
     //Update Text
     const winner = document.querySelector(".winner");
     //Checking for a tie
-    if (playerChoice === computerChoice) {
+    if (playerChoice === computerChoice){
       winner.textContent = "It is a tie";
       return;
     }
@@ -106,10 +106,10 @@ function game () {
     }
   };
 
-  //Is call all the inner function
+  //lancer les fonction
   startGame();
   playMatch();
 };
 
-//start the game function
+//lancer la fonction principale
 game();
