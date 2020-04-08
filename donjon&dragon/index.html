@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang=fr>
+	<head>
+		<title>Legend of Yggdrasil</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="stylesheet" type="text/css" href="css/marandpad.css">
+		<link rel="stylesheet" href="fontawesome-free-5.3.1-web/css/all.min.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<nav class="container">
+				<h1 class="text-center margin-top-20">Legend of Yggdrasil</h1>
+			</nav>
+		</header>
+		<main>
+			<div class="container">
+				<div id="start" class="row text-center">
+					<div class="col-sm-12">
+						<label for="name">Entrer votre nom</label>
+					</div>
+					<div class="col-sm-5 "></div>
+					<div class="col-sm-2 padding-10">
+						<input class="form-control" type="text" name="name" id="name">
+					</div>
+					<div class="col-5 "></div>
+					<div class="col-sm-12 padding-10">
+						<button id="game" class="btn" onclick="getname()">Start</button>
+					</div>
+				</div>
+				<section id="intro" class="intro">
+					<div class="row">
+						<div class="col-sm-4">
+							<img src="IMG/fairy.gif" width="100%">
+						</div>
+						<div class="col-sm-8">
+							<p id="message"></p>
+							<button id="continue" class="btn">Continue</button>
+						</div>
+					</div>
+				</section>
+				<div  class="row">
+					<div class="col-sm-12">
+						<section id="intro2" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p id="message2"></p>
+								</div>
+							</div>	
+						</section>	
+					</div>
+					<div class="col-sm-4 margin-top-10">
+						<span style="cursor:pointer" onclick="openNav()"><img id="door" src="IMG/2.jpg" width="100%" height="250px"></span>
+					</div>
+					<div class="col-sm-4 margin-top-10">
+						<span style="cursor:pointer" onclick="openNav2()"><img id="door2" src="IMG/3.jpg" width="100%" height="250px"></span>
+					</div>
+					<div class="col-sm-4 margin-top-10">
+						<span style="cursor:pointer" onclick="openNav3()"><img id="door3" src="IMG/4.jpg" width="100%" height="250px"></span>
+					</div>
+				</div>
+			</div>
+			<div id="path" class="overlay">
+				<div class="overlay-content">
+					<div class="container">
+						<div id="intro3" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p id="message3"></p>
+									<button href="index.html" id="continue3" class="btn" onclick="combat()">Continue</button>
+								</div>
+							</div>
+						</div>	
+					</div>
+					<div class="container">
+						<div id="intro32" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img id="sweapon" src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p id="message32"></p>
+									<p class="sword"></p>
+									<p class="shield"></p>
+									<p class="secret" style="color: black;"></p>
+									<button id="continue32" class="btn">Continue</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fight">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-6">
+									<progress id="mhealth" value="100" max="100"></progress>
+								</div>
+								<div class="col-sm-6">
+									<img src="IMG" id="monsterimg">
+								</div>
+							</div>
+							<div class="row" id="persopart">
+								<div class="weapon col-4 col-sm-2">
+									<img src="IMG/sword.png" width="100%" onclick="attack();">
+								</div>
+								<div class="weapon col-4 col-sm-2">
+									<img src="IMG/shield.png"  width="85%" onclick="defend();">
+								</div>
+								<div id="rifle" class="col-4 col-sm-2">
+									<img src="IMG/rifle.png" width="50%" onclick="atomize();">
+								</div>
+								<div class="col-sm-6">
+									<progress id="phealth" value="200" max="200"></progress>
+								</div>
+							</div>	
+						</div>
+					</div>
+					<div class="container">
+						<div id="winc" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p class="messagewin">Nous avons enfin tué le monstre, néanmoins ceci n'est pas la fin de notre voyage, il nous reste encore du chemin avant d'arriver au coeur d'Yggdrasil</p>
+									<button id="continue33" class="btn" onclick="closeNav()">Continue</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div id="losec" class="intro text-center">
+							<div class="row ">
+								<div class="col-12">
+									<h2 class="text-center">GAME OVER</h2>
+								</div>
+								<div class="col-12">
+									<button id="restart" class="btn" onclick="closeNav()">Rejouer</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="path2" class="overlay2">
+				<div class="overlay-content">
+				  	<div class="container">
+						<div id="intro4" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p id="message4"></p>
+									<button href="index.html" id="continue4" class="btn" onclick="combat()">Continue</button>
+								</div>
+							</div>
+						</div>	
+					</div>
+					<div class="container">
+						<div id="intro42" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img id="sweapon2" src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p id="message42"></p>
+									<p class="sword"></p>
+									<p class="shield"></p>
+									<p class="secret" style="color: black;"></p>
+									<button id="continue42" class="btn">Continue</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fight">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-6">
+									<progress id="mhealth2" value="100" max="100"></progress>
+								</div>
+								<div class="col-sm-6">
+									<img src="IMG" id="monsterimg2">
+								</div>
+							</div>
+							<div class="row" id="persopart">
+								<div class="weapon2 col-4 col-sm-2">
+									<img src="IMG/sword.png" width="100%" onclick="attack2();">
+								</div>
+								<div class="weapon2 col-4 col-sm-2">
+									<img src="IMG/shield.png"  width="85%" onclick="defend2();">
+								</div>
+								<div id="rifle2" class="col-4 col-sm-2">
+									<img src="IMG/rifle.png" width="50%" onclick="atomize2();">
+								</div>
+								<div class="col-sm-6">
+									<progress id="phealth2" value="200" max="200"></progress>
+								</div>
+							</div>	
+						</div>
+					</div>
+					<div class="container">
+						<div id="winc2" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p class="messagewin">Nous avons enfin tué le monstre, néanmoins ceci n'est pas la fin de notre voyage, il nous reste encore du chemin avant d'arriver au coeur d'Yggdrasil</p>
+									<button id="continue43" class="btn" onclick="closeNav2()">Continue</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div id="losec2" class="intro text-center">
+							<div class="row ">
+								<div class="col-12">
+									<h2 class="text-center padding-10">GAME OVER</h2>
+								</div>
+								<div class="col-12">
+									<button id="restart2" class="btn margin-bottom-10" onclick="closeNav2()">Rejouer</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="path3" class="overlay3">
+				<div class="overlay-content">
+				  	<div class="container">
+						<div id="intro5" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p id="message5"></p>
+									<button href="index.html" id="continue5" class="btn" onclick="combat()">Continue</button>
+								</div>
+							</div>
+						</div>	
+					</div>
+					<div class="container">
+						<div id="intro52" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img id="sweapon3" src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p id="message52"></p>
+									<p class="sword"></p>
+									<p class="shield"></p>
+									<p class="secret" style="color: black;"></p>
+									<button id="continue52" class="btn">Continue</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="fight">
+						<div class="container">
+							<div class="row">
+								<div class="col-sm-6">
+									<progress id="mhealth3" value="100" max="100"></progress>
+								</div>
+								<div class="col-sm-6">
+									<img src="IMG" id="monsterimg3">
+								</div>
+							</div>
+							<div class="row" id="persopart">
+								<div class="weapon3 col-4 col-sm-2">
+									<img src="IMG/sword.png" width="100%" onclick="attack3();">
+								</div>
+								<div class="weapon3 col-4 col-sm-2">
+									<img src="IMG/shield.png"  width="85%" onclick="defend3();">
+								</div>
+								<div id="rifle3" class="col-4 col-sm-2">
+									<img src="IMG/rifle.png" width="50%" onclick="atomize3();">
+								</div>
+								<div class="col-sm-6">
+									<progress id="phealth3" value="200" max="200"></progress>
+								</div>
+							</div>	
+						</div>
+					</div>
+					<div class="container">
+						<div id="winc3" class="intro">
+							<div class="row">
+								<div class="col-sm-4">
+									<img src="IMG/fairy.gif" width="100%">
+								</div>
+								<div class="col-sm-8">
+									<p class="messagewin">Nous avons enfin tué le monstre, néanmoins ceci n'est pas la fin de notre voyage, il nous reste encore du chemin avant d'arriver au coeur d'Yggdrasil</p>
+									<button id="continue53" class="btn" onclick="closeNav3()">Continue</button>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="container">
+						<div id="losec3" class="intro text-center">
+							<div class="row ">
+								<div class="col-12">
+									<h2 class="text-center">GAME OVER</h2>
+								</div>
+								<div class="col-12">
+									<button id="restart3" class="btn" onclick="closeNav3()">Rejouer</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+					<div id="intro6" class="intro">
+						<div class="row">
+							<div class="col-sm-4">
+								<img src="IMG/fairy.gif" width="100%">
+							</div>
+							<div class="col-sm-8">
+							<p>nous y sommes presque, plus qu'à passer le .......</p>	
+							<button id="continue53" class="btn" style="cursor:pointer" onclick="openNav4()">Continue</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="path4" class="overlay4">
+				<div class="overlay-content">
+					<div class="container">
+						<div id="intro7" class="intro">
+						<div class="row">
+							<div class="col-sm-4">
+								<img src="IMG/giphy.gif" width="100%">
+							</div>
+							<div class="col-sm-8">
+							<p>je suis ... le gardien de .... trouve le code .... et la porte s'ouvrira ....... la nuit et le jour ..... coté de ton ombre ... je ne suis pas seul....</p>	
+							<button id="continue7" class="btn">Continue</button>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div id="find">
+						<div class="row">
+							<div class="col-sm-3">
+							<div class="row">
+								<div class="col-4 col-sm-12 text-center">
+									<img src="IMG/frame.png">
+								</div>
+								<div class="col-4 col-sm-12 text-center">
+									<img src="IMG/frame.png">
+								</div>
+								<div class="col-4 col-sm-12 text-center">
+									<img src="IMG/frame2.png">
+								</div>
+							</div>
+						</div>
+						<div id="inpcode" class="col-sm-6 text-center">
+								<input class="form-control" type="text" name="code" id="code">
+								<button id="buttoncode" class="btn" onclick="closeNav4();">continue</button>
+						</div>
+						<div class="col-sm-3">
+							<div class="row">
+								<div class="col-4 col-sm-12 text-center"> 
+									<img src="IMG/frame.png">
+								</div>
+								<div class="col-4 col-sm-12 text-center">
+									<img src="IMG/frame.png">
+								</div>
+								<div class="col-4 col-sm-12 text-center">
+									<img src="IMG/frame.png">
+								</div>
+							</div>
+						</div>
+						</div>
+					</div>
+				</div>
+				</div>
+				<div class="container">
+						<div id="intro8" class="intro">
+						<div class="row">
+							<div class="col-sm-4">
+								<img src="IMG/fairy.gif" width="100%">
+							</div>
+							<div class="col-sm-8">
+							<p>Nous sommes enfin arrivé au coeur d'Yggdrasil. plante ta lame dans son coeur pour sauver ta patrie</p>	
+							<button id="continue8" class="btn" onclick="badend();">Plante ta lame</button>
+							<button id="end" onclick="goodend();">Tuer la fée et retourner à la maison</button>
+							</div>
+						</div>
+					</div>
+					</div>
+					<div class="container">
+					<div id="intro9" class="intro">
+						<div class="row">
+							<div class="col-sm-4">
+								<img src="IMG/devil.gif" width="100%">
+							</div>
+							<div class="col-sm-8">
+							<h2 class="text-center">GAME OVER</h2>
+							<p>Hahaha!!! Grâce à toi le monde va être détruit et tu sera le seul responsable. Tu n'étais qu'une marionnette dans mon plan. Maintenant le monde </p>	
+							<button  class="btn" onclick="window.location.reload(false);">Rejouer</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+					<div id="intro10" class="intro">
+						<div class="row">
+							<div class="col-sm-4">
+								<img src="IMG/devil.gif" width="100%">
+							</div>
+							<div class="col-sm-8">
+							<h2 class="text-center">Victory</h2>
+							<p>Comment as-tu su? Je me vengerais un  jour....(le méchant meurt et vous rentrer chez vous)</p>	
+							<button id="continue10" class="btn">continuer</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+						<div id="intro11" class="intro text-center">
+							<div class="row ">
+								<div class="col-12">
+									<h2 class="text-center">HAPPY BIRTHDAY</h2>
+									<img src="IMG/cake_animation.gif" width="60%" >
+								</div>
+								<div class="col-12">
+									<button class="btn" onclick="window.location.reload(false);">Rejouer</button>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>		
+		</main>
+		<footer style="
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    color: white;
+">
+			<nav class="container text-center">
+				<p>@2019 copyright Zhu Vincent</p>
+			</nav>
+		</footer>
+		<script src="JS/main.js"></script>
+		<script type="text/javascript">
+			//texte répété
+			$(".sword").html("-une épée pour attaquer");
+			$(".shield").html("-un bouclier pour te protéger");
+			$(".secret").html("-un fusil si tu me double-clique dessus");
+			$(".messagewin").html("Nous avons enfin tué le monstre, néanmoins ceci n'est pas la fin de notre voyage, il nous reste encore du chemin avant d'arriver au coeur d'Yggdrasil");
+
+			$(document).ready(function(){
+  				$("#game").click(function(){
+				    $("#start").hide();
+				    $("#intro").fadeIn("slow");
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#restart").click(function(){
+				    $("#start").fadeIn();
+				    $("#intro2").hide();
+				    $("#door").hide();
+				    $("#door2").hide();
+				    $("#door3").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#restart2").click(function(){
+				    $("#start").fadeIn();
+				    $("#intro2").hide();
+				    $("#door").hide();
+				    $("#door2").hide();
+				    $("#door3").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#restart3").click(function(){
+				    $("#start").fadeIn();
+				    $("#intro2").hide();
+				    $("#door").hide();
+				    $("#door2").hide();
+				    $("#door3").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#continue").click(function(){
+				    $("#intro").hide();
+				    $("#intro2").fadeIn("slow");
+				    $("#door").fadeIn("slow");
+				    $("#door2").fadeIn("slow");
+				    $("#door3").fadeIn("slow");
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#door").click(function(){
+				    $("#intro3").fadeIn();
+				    $("#losec").hide();  
+	  			});
+	  		});$(document).ready(function(){
+  				$("#door2").click(function(){
+				    $("#intro4").fadeIn();
+				    $("#losec2").hide();  
+	  			});
+	  		});
+  			$(document).ready(function(){
+  				$("#door3").click(function(){
+				    $("#intro5").fadeIn();
+				    $("#losec3").hide();  
+	  			});
+	  		});
+  			$(document).ready(function(){
+  				$("#continue3").click(function(){
+				    $("#intro3").hide();
+				    $("#intro32").fadeIn();  
+	  			});
+	  		});
+	  		$(document).ready(function(){
+  				$("#continue4").click(function(){
+				    $("#intro4").hide();
+				    $("#intro42").fadeIn();  
+	  			});
+	  		});
+	  		$(document).ready(function(){
+  				$("#continue5").click(function(){
+				    $("#intro5").hide();
+				    $("#intro52").fadeIn();  
+	  			});
+	  		});
+  			$(document).ready(function(){
+  				$("#continue32").click(function(){
+				    $("#intro32").hide();
+				    $("#mhealth").fadeIn("slow");
+				    $("#phealth").fadeIn("slow");
+				    $("#monsterimg").fadeIn("slow");
+				    $(".weapon").fadeIn("slow");
+				    
+				});
+	  		});
+	  		$(document).ready(function(){
+  				$("#continue42").click(function(){
+				    $("#intro42").hide();
+				    $("#mhealth2").fadeIn("slow");
+				    $("#phealth2").fadeIn("slow");
+				    $("#monsterimg2").fadeIn("slow");
+				    $(".weapon2").fadeIn("slow");
+				    
+				});
+	  		});
+	  		$(document).ready(function(){
+  				$("#continue52").click(function(){
+				    $("#intro52").hide();
+				    $("#mhealth3").fadeIn("slow");
+				    $("#phealth3").fadeIn("slow");
+				    $("#monsterimg3").fadeIn("slow");
+				    $(".weapon3").fadeIn("slow");
+				    
+				});
+	  		});
+	  		$(document).ready(function(){
+  				$("#sweapon").click(function(){
+  					$("#intro32").hide();
+  					$("#mhealth").fadeIn("slow");
+				    $("#phealth").fadeIn("slow");
+				    $("#monsterimg").fadeIn("slow");
+				    $(".weapon").fadeIn("slow");
+				    $("#rifle").fadeIn("slow");
+				});
+	  		});
+	  		$(document).ready(function(){
+  				$("#sweapon2").click(function(){
+  					$("#intro42").hide();
+  					$("#mhealth2").fadeIn("slow");
+				    $("#phealth2").fadeIn("slow");
+				    $("#monsterimg2").fadeIn("slow");
+				    $(".weapon2").fadeIn("slow");
+				    $("#rifle2").fadeIn("slow");
+				});
+	  		});
+	  		$(document).ready(function(){
+  				$("#sweapon3").click(function(){
+  					$("#intro52").hide();
+  					$("#mhealth3").fadeIn("slow");
+				    $("#phealth3").fadeIn("slow");
+				    $("#monsterimg3").fadeIn("slow");
+				    $(".weapon3").fadeIn("slow");
+				    $("#rifle3").fadeIn("slow");
+				});
+	  		});
+	  		$(document).ready(function(){
+  				$(".weapon").click(function(){
+  					if ($("#mhealth").val()<=0) {
+  						$("#mhealth").hide();
+				    	$("#phealth").hide();
+				    	$("#monsterimg").hide();
+				    	$(".weapon").hide();
+				    	$("#rifle").hide();
+				    	$("#winc").fadeIn("slow");
+  					}
+					else if ($("#phealth").val()<=0) {
+  						$("#mhealth").hide();
+				    	$("#phealth").hide();
+				    	$("#monsterimg").hide();
+				    	$(".weapon").hide();
+				    	$("#rifle").hide();
+				    	$("#losec").fadeIn("slow");
+  					}
+  					});
+	  		});
+	  		$(document).ready(function(){
+  				$("#rifle").click(function(){
+  					if ($("#mhealth").val()<=0) {
+  						$("#mhealth").hide();
+				    	$("#phealth").hide();
+				    	$("#monsterimg").hide();
+				    	$(".weapon").hide();
+				    	$("#rifle").hide();
+				    	$("#winc").fadeIn("slow");
+  					}
+					else if ($("#phealth").val()<=0) {
+  						$("#mhealth").hide();
+				    	$("#phealth").hide();
+				    	$("#monsterimg").hide();
+				    	$(".weapon").hide();
+				    	$("#rifle").hide();
+				    	$("#losec").fadeIn("slow");
+  					}
+  					});
+	  		});
+	  		$(document).ready(function(){
+  				$(".weapon2").click(function(){
+  					if ($("#mhealth2").val()<=0) {
+  						$("#mhealth2").hide();
+				    	$("#phealth2").hide();
+				    	$("#monsterimg2").hide();
+				    	$(".weapon2").hide();
+				    	$("#rifle2").hide();
+				    	$("#winc2").fadeIn("slow");
+  					}
+					else if ($("#phealth2").val()<=0) {
+  						$("#mhealth2").hide();
+				    	$("#phealth2").hide();
+				    	$("#monsterimg2").hide();
+				    	$(".weapon2").hide();
+				    	$("#rifle2").hide();
+				    	$("#losec2").fadeIn("slow");
+  					}
+  					});
+	  		});
+	  		$(document).ready(function(){
+  				$("#rifle2").click(function(){
+  					if ($("#mhealth2").val()<=0) {
+  						$("#mhealth2").hide();
+				    	$("#phealth2").hide();
+				    	$("#monsterimg2").hide();
+				    	$(".weapon2").hide();
+				    	$("#rifle2").hide();
+				    	$("#winc2").fadeIn("slow");
+  					}
+					else if ($("#phealth2").val()<=0) {
+  						$("#mhealth2").hide();
+				    	$("#phealth2").hide();
+				    	$("#monsterimg2").hide();
+				    	$(".weapon2").hide();
+				    	$("#rifle2").hide();
+				    	$("#losec2").fadeIn("slow");
+  					}
+  					});
+	  		});
+	  		$(document).ready(function(){
+  				$(".weapon3").click(function(){
+  					if ($("#mhealth3").val()<=0) {
+  						$("#mhealth3").hide();
+				    	$("#phealth3").hide();
+				    	$("#monsterimg3").hide();
+				    	$(".weapon3").hide();
+				    	$("#rifle3").hide();
+				    	$("#winc3").fadeIn("slow");
+  					}
+					else if ($("#phealth3").val()<=0) {
+  						$("#mhealth3").hide();
+				    	$("#phealth3").hide();
+				    	$("#monsterimg3").hide();
+				    	$(".weapon3").hide();
+				    	$("#rifle3").hide();
+				    	$("#losec3").fadeIn("slow");
+  					}
+  					});
+	  		});
+	  		$(document).ready(function(){
+  				$("#rifle3").click(function(){
+  					if ($("#mhealth3").val()<=0) {
+  						$("#mhealth3").hide();
+				    	$("#phealth3").hide();
+				    	$("#monsterimg3").hide();
+				    	$(".weapon3").hide();
+				    	$("#rifle3").hide();
+				    	$("#winc3").fadeIn("slow");
+  					}
+					else if ($("#phealth3").val()<=0) {
+  						$("#mhealth3").hide();
+				    	$("#phealth3").hide();
+				    	$("#monsterimg3").hide();
+				    	$(".weapon3").hide();
+				    	$("#rifle3").hide();
+				    	$("#losec3").fadeIn("slow");
+  					}
+  					});
+	  		});
+	  		$(document).ready(function(){
+  				$("#continue33").click(function(){
+				    $("#intro6").fadeIn();
+				    $("#intro2").hide();
+				    $("#door").hide();
+				    $("#door2").hide();
+				    $("#door3").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#continue43").click(function(){
+				    $("#intro6").fadeIn();
+				    $("#intro2").hide();
+				    $("#door").hide();
+				    $("#door2").hide();
+				    $("#door3").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#continue53").click(function(){
+				    $("#intro6").fadeIn();
+				    $("#intro2").hide();
+				    $("#door").hide();
+				    $("#door2").hide();
+				    $("#door3").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#continue7").click(function(){
+				    $("#find").fadeIn("slow");
+				    $("#intro7").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#buttoncode").click(function(){
+  					if ($("#code").val()=="meth") {
+					    $("#find").hide();
+					    $("#intro6").hide();
+					    $("#intro7").fadeIn("slow");
+					    $("#intro8").fadeIn("slow");
+					}
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#continue8").click(function(){
+				    $("#intro9").fadeIn("slow");
+				    $("#intro8").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#end").click(function(){
+				    $("#intro10").fadeIn("slow");
+				    $("#intro8").hide();
+  				});
+  			});
+  			$(document).ready(function(){
+  				$("#continue10").click(function(){
+				    $("#intro11").fadeIn("slow");
+				    $("#intro10").hide();
+  				});
+  			});
+		</script>
+	</body>
+</html>

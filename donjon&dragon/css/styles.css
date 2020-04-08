@@ -1,0 +1,282 @@
+body {
+	background-image:url(../IMG/1.jpg);
+	background-size: 110%;
+  font-family: 'VT323', monospace;
+}
+nav h1{
+  color:white;
+  font-family:impact;
+  font-size: 70px;
+}
+div #start{
+  margin-top:200px;
+}
+label{
+  font-size:20px;
+  color: white;
+}
+#intro{
+  display:none;
+  margin-top:80px;
+}
+.intro{
+  border: 4mm ridge;
+  border-color: brown;
+  background-color:black;
+  color:white;
+  font-family: 'VT323', monospace;
+  font-size:20px;
+}
+#intro2{
+  display:none;
+  margin-top:70px;
+}   
+#intro3{
+  font-size:20px;
+  margin-top: 30px;
+}
+#intro4{
+  font-size:20px;
+  margin-top: 30px;
+}
+#intro5{
+  font-size:20px;
+  margin-top: 30px;
+}
+#intro32{
+  display:none;
+  font-size:20px;
+}
+#intro42{
+  display:none;
+  font-size:20px;
+}
+#intro52{
+  display:none;
+  font-size:20px;
+}
+#intro6{
+  display:none;
+  margin-top:80px;
+}
+#intro7{
+  margin-top:80px;
+}
+#intro8{
+  display: none;
+  margin-top:80px;
+}
+#intro9{
+  display: none;
+  margin-top:80px;
+}
+#intro10{
+  display: none;
+  margin-top:80px;
+}
+#intro11{
+  display: none;
+  margin-top:80px;
+  background-color:white;
+  color:pink;
+}
+#winc{
+  display:none;
+  margin-top: 30px;
+}
+#losec{
+  display:none;
+  margin-top: 30px;
+}
+#winc2{
+  display:none;
+  margin-top: 30px;
+}
+
+#losec2{
+  display:none;
+  margin-top: 30px;
+}
+#winc3{
+  display:none;
+  margin-top: 30px;
+}
+#losec3{
+  display:none;
+  margin-top: 30px;
+}
+.weapon{
+  display:none;
+  background-color:white;
+  border:4mm ridge;
+  padding:10px;
+}
+.weapon2{
+  display:none;
+  background-color:white;
+  border:4mm ridge;
+  padding:10px;
+}
+.weapon3{
+  display:none;
+  background-color:white;
+  border:4mm ridge;
+  padding:10px;
+}
+#rifle{
+  display:none;
+  background-color:white;
+  border:4mm ridge;
+  padding:10px;
+}
+#rifle2{
+  display:none;
+  background-color:white;
+  border:4mm ridge;
+  padding:10px;
+}
+#rifle3{
+  display:none;
+  background-color:white;
+  border:4mm ridge;
+  padding:10px;
+}
+#find{
+  display: none;
+}
+#find img{
+  max-height:100px;
+  margin:10%;
+  filter: brightness(0%);
+}
+#find img:hover{
+  filter: brightness(100%);
+}
+#inpcode {
+    margin-top: 250px;
+    margin-bottom: 250px;
+}
+#end{
+  border-color: black;
+  color: black;
+  background-color: black;
+}
+div span img{
+  display: none;
+  border-radius:20px;
+  box-shadow:10px 5px 5px; 
+}
+div span img:hover {
+  box-shadow:2px 2px 2px;
+}
+#monsterimg{
+  display: none;
+  max-height: 400px;
+}
+#monsterimg2{
+  display: none;
+  max-height: 400px;
+}
+#monsterimg3{
+  display: none;
+  max-height: 400px;
+}
+#inpcode {
+    margin-top: 250px;
+    margin-bottom: 250px;
+}
+progress{
+  display: none;
+  border:solid;
+  border-color: black;
+  width:100%;
+  height:30px;
+}
+#fight{
+  text-align:center;
+}
+
+.overlay {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-image:url(../IMG/2.jpg);
+  background-size:100%;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+.overlay2 {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-image:url(../IMG/3.jpg);
+  background-size:100%;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+.overlay3 {
+  height: 0%;
+  width: 100%;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-image:url(../IMG/4.jpg);
+  background-size:100%;
+  overflow-y: hidden;
+  transition: 0.5s;
+}
+.overlay4 {
+    height: 0%;
+    width: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background: black;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url(../IMG/gate.jpg);
+    background-size: 50%;
+    overflow-y: hidden;
+    transition: 0.5s;
+}
+.overlay-content {
+  position: relative;
+  width: 100%;
+  margin-top: 5%;
+}
+@media screen and (max-height: 450px) {
+  .overlay {overflow-y: auto;}
+  .overlay2 {overflow-y: auto;}
+  .overlay3 {overflow-y: auto;}
+  .overlay4 {overflow-y: auto;}
+}
+@media screen and (max-width: 1200px){
+  body {
+  background-image:url(../IMG/1.jpg);
+  background-size: 360%;
+  }
+  .overlay {
+    background-image:url(../IMG/2.jpg);
+    background-size: 360%;
+  }
+  .overlay2 {
+    background-image:url(../IMG/3.jpg);
+    background-size: 360%;
+  }
+  .overlay3 {
+    background-image:url(../IMG/4.jpg);
+    background-size: 360%;
+  }
+  .overlay4 {
+    background-image:url(../IMG/gate.jpg);
+    background-size: 100%;
+  }
+}
